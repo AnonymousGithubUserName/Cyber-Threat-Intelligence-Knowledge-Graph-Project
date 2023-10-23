@@ -9,7 +9,7 @@ By uilizing those information, CTIKG constructs a security-oriented knowledge gr
 ## Overview
 CTIKG contains three main components. The overview figure is shown below.
 
-![image](https://i.imgur.com/v9Hcxgc.png)
+![image](https://i.imgur.com/ou5TqZs.jpg)
 
 1. [CTI Sentence Identification](https://github.com/CTIKR/CTIKG/tree/main/CTI%20Sentence%Identification): CTI Sentence Identification. By using collected CTI sentences from the ATT&CK knowledge base and several computer security related websites and CTIKG have two RoBERTa model. Thus, CTIKG can identify tactics sentences and behavior sentences from an article. 
 
