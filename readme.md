@@ -11,7 +11,7 @@ CTIKG contains three main components. The overview figure is shown below.
 
 ![image](https://i.imgur.com/ou5TqZs.jpg)
 
-1. [CTI Sentence Identification](https://github.com/CTIKR/CTIKG/tree/main/CTI%20Sentence%Identification): CTI Sentence Identification. By using collected CTI sentences from the ATT&CK knowledge base and several computer security related websites and CTIKG have two RoBERTa model. Thus, CTIKG can identify tactics sentences and behavior sentences from an article. 
+1. [CTI Sentence Identification](https://github.com/AnonymousGithubUserName/Cyber-Threat-Intelligence-Knowledge-Graph-Project/tree/main/CTI%20Sentence%20Identification): CTI Sentence Identification. By using collected CTI sentences from the ATT&CK knowledge base and several computer security related websites and CTIKG have two RoBERTa model. Thus, CTIKG can identify tactics sentences and behavior sentences from an article. 
 
 2. [CTI Article Classification](https://github.com/CTIKR/CTIKG/tree/main/CTI%20Article%Classification): CTIKG uses sentence classification models to infer the tactics and behavior labels of each sentenc, counts the labeling information as vector, identifies the CTI sentences, and embeds CTI sentences to vector. In this phase, CTIKG transfers article into vector and has a DNN model to identify CTI articles from numerous articles.
 
