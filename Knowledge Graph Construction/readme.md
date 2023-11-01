@@ -3,11 +3,11 @@ Knowledge Graph Construction
 ## Introduction 
 CTIKG can utilizes the article classification model to extract CTI articles from articles, applies NLP techniques to extract entities and their relations described in the CTI sentences, and then match the entities to join the relations, forming the knowledge graph. 
 In the matching step,the Levenstain distance is used to compute string distances, which is defined as:
-![Lev(s1, s2)](https://latex.codecogs.com/png.latex?%5Cdpi%7B300%7D%20Lev%28s_1%2C%20s_2%29%20%3D%20%5Cbegin%7Bcases%7D%20%20%20max%5C%7B%7Cs_1%7C%2C%20%7Cs_2%7C%5C%7D%20%26%20%5Ctext%7Bif%20%24%7Cs_1%7C%3D0%24%20or%20%24%7Cs_2%7C%3D0%24%7D%5C%5C%20%20%20Lev%28s_1%5B2%3A%5D%2C%20s_2%5B2%3A%5D%29%20%26%20%5Ctext%7Bif%20%24s_1%5B0%5D%20%3D%20s_2%5B0%5D%24%7D%5C%5C%20%20%201%20%2B%20min%20%5Cbegin%7Bcases%7D%20%20%20%20%20%20Lev%28s_1%5B2%3A%5D%2C%20s_2%29%20%5C%5C%20%20%20%20%20%20Lev%28s_1%2C%20s_2%5B2%3A%5D%29%20%5C%5C%20%20%20%20%20%20Lev%28s_1%5B2%3A%5D%2C%20s_2%5B2%3A%5D%29%20%5C%5C%20%20%20%5Cend%7Bcases%7D%20%26%20%5Ctext%7Botherwise%7D%20%5Cend%7Bcases%7D)
+![Lev(s1, s2)](https://latex.codecogs.com/svg.latex?%5Cdpi%7B300%7D%20Lev%28s_1%2C%20s_2%29%20%3D%20%5Cbegin%7Bcases%7D%20%20%20max%5C%7B%7Cs_1%7C%2C%20%7Cs_2%7C%5C%7D%20%26%20%5Ctext%7Bif%20%24%7Cs_1%7C%3D0%24%20or%20%24%7Cs_2%7C%3D0%24%7D%5C%5C%20%20%20Lev%28s_1%5B2%3A%5D%2C%20s_2%5B2%3A%5D%29%20%26%20%5Ctext%7Bif%20%24s_1%5B0%5D%20%3D%20s_2%5B0%5D%24%7D%5C%5C%20%20%201%20%2B%20min%20%5Cbegin%7Bcases%7D%20%20%20%20%20%20Lev%28s_1%5B2%3A%5D%2C%20s_2%29%20%5C%5C%20%20%20%20%20%20Lev%28s_1%2C%20s_2%5B2%3A%5D%29%20%5C%5C%20%20%20%20%20%20Lev%28s_1%5B2%3A%5D%2C%20s_2%5B2%3A%5D%29%20%5C%5C%20%20%20%5Cend%7Bcases%7D%20%26%20%5Ctext%7Botherwise%7D%20%5Cend%7Bcases%7D)
     
 Then, $CTIKG$ computes the relative Levenstein distance as:
 
-$RLev_{(s_1, s_2)} = \frac{Lev_{(s_1, s_2)}}{max\{|s_1|, |s_2|\}}$
+![RLev(s1, s2)](https://latex.codecogs.com/svg.latex?RLev_{(s_1,s_2)}=\frac{Lev_{(s_1,%20s_2)}}{max\{|s_1|,%20|s_2|\}})
 
 CTIKG merges two entities if their entity types are the same and their text representations meet the following conditions:
 
@@ -21,9 +21,15 @@ In the community detection step, CTIKG uses the following rules to filter the co
 - Tactics Sentences: The source sentences of a community's edges contain at least three types of tactics.
 ## Evaluation
 The sample inspection shows that the entity detection model can correctly extract 76.06% of triples containing a specific CVE name, 71.09% of triples containing a specific malware name, and 72.72% of triples containing an APT group name.
-For the community detection, the sample inspection shows that the result from CTIKG contine more security-related entities than the result from the other community detection algorithm. We also use a score called Comm_Sec to evaluate the security-relatedness of the communities. The score is defined as:
+For the community detection, We also use a score called Comm_Sec to evaluate the security-relatedness of the communities. The score is defined as:
 
 ![score](https://latex.codecogs.com/svg.image?Comm_{Sec}=(R_{sec}+R_{tac}+R_{beh})*(\frac{R_{com}}{E(R_{com})}%20)*\sqrt{\frac{M}{E(M)}%20}*\frac{E(S)}{E(S)+\left%20|\bar{S}%20-E(S)%20\right%20|%20})
+
+The random sample inspection shows that the result from CTIKG contine more security-related entities than the result from the other community detection algorithm. 
+
+<p align="center">
+  <b> Figure: Comparison with other community detection algorithms </b>
+</p>
 
 | Algorithm         | Security Community % | Erdos-Renyi Modularity | Avg. Community Size | Security Entity % | Behavior Edge % | Tactic Edge % | Comm_Sec |
 |-------------------|----------------------|------------------------|---------------------|-------------------|----------------|---------------|----------|
