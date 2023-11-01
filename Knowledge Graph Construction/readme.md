@@ -14,11 +14,17 @@ CTIKG merges two entities if their entity types are the same and their text repr
 - Text similarity: The relative Levenshtein distance is below 0.1.
 - Semantics similarity: The cosine similarity of the mean Word2Vec embedding is above 0.7.
 
-To further explore the relationship between different entities in the graph, CTIKG has a new community detection algorithm that uses the security information provided by the article model and the sentence models to achieve security-oriented community detection and filtering.
+To further explore the relationship between different entities in the graph, CTIKG has a new community detection algorithm that uses the security information provided by the article model and the sentence models to achieve security-oriented community detection and filtering. It has ffollowing steps:
+
+- Type-based Grouping. CTIKG checks each entity’s type assigned during the triple extraction step, and applies the Louvain algorithm on only the security-related entities to identify a group of entities that belong to the same type.
+- Community Fusion. CTIKG merges the names of entities in each community into a single sentence, using the BERTencoder layer in the tactics model to compute theembedding vectors of the community. Then CTIKG computes the cosine similarities for each pair of vectors, and mergesthe community pairs whose vector similarity is greater than adefined threshold.
+- Community Filtering. CTIKG applies the following rules to filter out the communities that are not closely security-related.
+  
 In the community detection step, CTIKG uses the following rules to filter the communities:
 - Number of Source Articles: The source sentences of a community's edges must be from at least 2 articles.
 - Type of Source Article: All the source articles of a community must be classified as CTI articles.
 - Tactics Sentences: The source sentences of a community's edges contain at least three types of tactics.
+  
 ## Evaluation
 The sample inspection shows that the entity detection model can correctly extract 76.06% of triples containing a specific CVE name, 71.09% of triples containing a specific malware name, and 72.72% of triples containing an APT group name.
 For the community detection, We also use a score called Comm_Sec to evaluate the security-relatedness of the communities. The score is defined as:
@@ -45,3 +51,6 @@ The random sample inspection shows that the result from CTIKG contine more secur
 | ebgc               | 16.66%               | 0.35                   | 5.49                | 9.89%            | 4.13%          | 4.69%        | 0.04     |
 
 ## Workflow
+1. Run the *Entity Extraction.ipynb* to extract triples and their relationship from articles and save them as pkl files.
+2. Run the *Graph Generation.ipynb* to generate overall graph, and a optional graph that only contains CTI article's triples.
+3. Run the *Community Detection.ipynb* to perform the CTIKG community detection algorithm.
