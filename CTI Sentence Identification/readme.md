@@ -25,7 +25,7 @@ In total, 17,420 sentences are labeled with the Cyber attack tactics. Among the 
   <b> Figure: Distribution of Attack Tactics </b>
 </p>
 <p align="center" style="background-color: white;">
-  <img src="https://i.imgur.com/KXw6XwU.png">
+  <img src="https://i.imgur.com/9cThmEe.jpg" style="border: 10px solid white;">
 </p>
 
 
