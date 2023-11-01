@@ -25,6 +25,8 @@ For the community detection, We also use a score called Comm_Sec to evaluate the
 
 ![score](https://latex.codecogs.com/svg.image?Comm_{Sec}=(R_{sec}+R_{tac}+R_{beh})*(\frac{R_{com}}{E(R_{com})}%20)*\sqrt{\frac{M}{E(M)}%20}*\frac{E(S)}{E(S)+\left%20|\bar{S}%20-E(S)%20\right%20|%20})
 
+Where $R_{sec}$ denotes the proportion of nodes being security-related entities in the community, $R_{tac}$ denotes the proportion of edges in the community that is related to tactics sentences, $R_{beh}$ denotes the proportion of edges in the community that is related to behavior sentences, $R_{com}$ denotes the proportion of security-related communities through manual inspection, $M$ denotes the Erdos-Renyi Modularity, $\bar{S}$ denotes the average size of communities, $E(S)$ denotes the expected size of communities, $E(M)$ denotes the expected value of Erdos-Renyi Modularity, and $E(R_{com})$ denotes the expected proportion of security-related communities.
+
 The random sample inspection shows that the result from CTIKG contine more security-related entities than the result from the other community detection algorithm. 
 
 <p align="center">
