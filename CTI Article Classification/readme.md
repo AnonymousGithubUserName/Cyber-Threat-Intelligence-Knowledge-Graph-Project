@@ -1,4 +1,4 @@
-#CTI Article Classification
+CTI Article Classification
 
 ## Introduction
 The CTIKG can use sentence classification models to infer the tactics and behavior labels of each sentence in a CTI article, and convert them into a vector. The CTIKG can also identify the CTI sentences, and embed them into another vector. Based on these two vectors, the CTIKG can transform an article into a single vector and use a DNN model to classify it as a CTI or non-CTI article. The label vector consists of the following information:
