@@ -1,4 +1,4 @@
-Knowledge Graph Construction
+# Knowledge Graph Construction
 
 ## Introduction 
 CTIKG can utilizes the article classification model to extract CTI articles from articles, applies NLP techniques to extract entities and their relations described in the CTI sentences, and then match the entities to join the relations, forming the knowledge graph. 
