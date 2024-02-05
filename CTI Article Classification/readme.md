@@ -25,10 +25,10 @@ We labeled 3,588 articles from all articles, with their article type. In total, 
   <b> Figure: DNN Structure </b>
 </p>
 
-By varying the threshold, we can adjust recall and precision, and by trying various combinations of thresholds, we use a threshold of 0.15 to achieve the best recall of **95.7%** while maintaining a reasonably good precision of **74.7%** and a F1 score of **83.9%**.
+By varying the threshold, we can adjust recall and precision, and by trying various combinations of thresholds, we use a threshold of 0.2 to achieve the best recall of **90.5%** while maintaining a reasonably good precision of **75.7%**.
 
 <p align="center">
-  <img src="https://i.imgur.com/hZfpDF3.png">
+  <img src="https://i.ibb.co/d40Mwh8/articlecruve.png">
 </p>
 <p align="center">
   <b> Figure:Precision, Recall and F1-score in different threshold </b>
